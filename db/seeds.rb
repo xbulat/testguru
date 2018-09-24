@@ -7,26 +7,34 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # users
-User.create([{first_name: 'John', last_name: 'Doe', login: 'john', email: 'john@example.com'},
-            {first_name: 'Jane', last_name: 'Doe', login: 'jane', email: 'jane@example.com'}])
+users = User.create!([{ first_name: 'John', last_name: 'Doe', login: 'john', email: 'john@example.com' },
+              { first_name: 'Jane', last_name: 'Doe', login: 'jane', email: 'jane@example.com' }])
 
 # categories
-%w[Language Sience Art Religion].each { |c| Category.create(title: c) }
+categories = %w[Language Sience Art Religion].map { |c| Category.create!(title: c) }
 
 # tests
-Category.pluck(:title, :id).each do |c|
-  %w[Basics History].each do |t|
-    Test.create(title: "#{t} of #{c[0]}",
-                level: rand(4),
-                category_id: c[1])
+tests = categories.map do |c|
+  %w[Basics History].map do |t|
+    Test.create!(title: "#{t} of #{c.title}",
+                 level: rand(4),
+                 category_id: c.id)
   end
-end
+end.flatten
+
 # questions
-Test.pluck(:id).each do |t|
-  1.upto(10) { |q| Question.create(test_id: t, body: "#{q}. Question") }
+questions = tests.flat_map do |test|
+  Array.new(10) do |i|
+    Question.create!(test_id: test.id, body: "#{i}. Question")
+  end
 end
 
 # answers
-Question.pluck(:id).each do |q|
-  Answer.create(body: 'Example body', correct: rand(17).modulo(2), question_id: q)
+questions.map(&:id).each do |q|
+  Answer.create!(body: 'Example body', correct: [true, false].sample, question_id: q)
+end
+
+# passed tests
+tests.map(&:id).each do |t|
+  users.map(&:id).each { |u| UserPassedTest.create!(user_id: u, test_id: t) }
 end
