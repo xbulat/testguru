@@ -3,6 +3,7 @@ class Test < ApplicationRecord
 
   has_many :user_passed_tests
   has_many :users, through: :user_passed_tests
+  has_many :question, dependent: :destroy
 
   scope :by_category, ->(category) { joins(:category).where(categories: { title: category }) }
 
