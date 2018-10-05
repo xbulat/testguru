@@ -18,7 +18,8 @@ tests = categories.map do |c|
   %w[Basics History].map do |t|
     Test.create!(title: "#{t} of #{c.title}",
                  level: rand(4),
-                 category_id: c.id)
+                 category_id: c.id,
+                 user_id: users.map(&:id).sample)
   end
 end.flatten
 
