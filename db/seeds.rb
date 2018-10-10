@@ -17,9 +17,9 @@ categories = %w[Language Sience Art Religion].map { |c| Category.create!(title: 
 tests = categories.map do |c|
   %w[Basics History].map do |t|
     Test.create!(title: "#{t} of #{c.title}",
-                 level: rand(4),
+                 level: rand(6),
                  category_id: c.id,
-                 user_id: users.map(&:id).sample)
+                 user_id: users.sample.id)
   end
 end.flatten
 
