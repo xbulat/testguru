@@ -19,7 +19,7 @@ tests = categories.map do |c|
     Test.create!(title: "#{t} of #{c.title}",
                  level: rand(6),
                  category_id: c.id,
-                 user_id: users.sample.id)
+                 user_id: users.sample)
   end
 end.flatten
 
