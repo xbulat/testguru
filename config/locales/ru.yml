@@ -31,3 +31,7 @@
 
 ru:
   hello: "Привет!"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: "Неудалось записать в базу"
