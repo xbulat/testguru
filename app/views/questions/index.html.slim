@@ -1,0 +1,8 @@
+ul
+  - @test.question.pluck(:id).each do |q|
+    li
+      a href=(test_question_path @test.id, q) Question #{q}
+      = button_to "del", test_question_path(@test.id, q), method: :delete, data: {confirm: 'Are you sure?'}
+
+li
+  a href=(new_test_question_path @test.id) Add question

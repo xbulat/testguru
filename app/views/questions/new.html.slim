@@ -1,0 +1,10 @@
+h2 Create new question
+= form_for([@test, @test.question.build]) do |f|
+  div.field
+    = f.label :body
+    br
+    = f.text_area :body
+  div.actions
+    = f.submit
+h2
+= link_to 'Back', test_questions_path
