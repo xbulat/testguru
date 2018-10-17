@@ -1,6 +1,6 @@
 class QuestionsController < ApplicationController
-  before_action :find_parent_test
-  before_action :find_question , only: %i[show destroy]
+  before_action :find_parent_test, only: %i[index new create]
+  before_action :find_question, only: %i[show destroy]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :rescue_with_invalid_record
@@ -27,11 +27,11 @@ class QuestionsController < ApplicationController
   end
 
   def find_parent_test
-    @test = Test.find_by(params[:test_id])
+    @test = Test.find(params[:test_id])
   end
 
   def find_question
-    @question = @test.question.find(params[:id])
+    @question = Question.find(params[:id])
   end
 
   def rescue_with_question_not_found
