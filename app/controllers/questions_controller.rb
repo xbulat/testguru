@@ -5,25 +5,11 @@ class QuestionsController < ApplicationController
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :rescue_with_invalid_record
 
-  attr_reader :test, :question
+  def index; end
 
-  def index
-    respond_to do |format|
-      format.html
-      format.json
-    end
-  end
+  def show; end
 
-  def show
-    respond_to do |format|
-      format.html
-      format.json
-    end
-  end
-
-  def new
-
-  end
+  def new; end
 
   def create
     @test.question.create!(resource_params)
@@ -37,8 +23,7 @@ class QuestionsController < ApplicationController
 
   private
   def resource_params
-    columns = %i(body)
-    params.require(:question).permit(*columns)
+    params.require(:question).permit(:body)
   end
 
   def find_parent_test
@@ -46,7 +31,7 @@ class QuestionsController < ApplicationController
   end
 
   def find_question
-    @question = test.question.find(params[:id])
+    @question = @test.question.find(params[:id])
   end
 
   def rescue_with_question_not_found
@@ -54,6 +39,6 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_invalid_record
-    render inline: "Cannot commit record [5xx]"
+    render inline: "Cannot commit record [402]"
   end
 end

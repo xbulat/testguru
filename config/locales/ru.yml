@@ -34,4 +34,4 @@ ru:
   activerecord:
     errors:
       messages:
-        record_invalid: "Неудалось записать в базу"
+        record_invalid: "Не удалось записать в базу"
