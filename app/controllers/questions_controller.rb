@@ -1,5 +1,5 @@
 class QuestionsController < ApplicationController
-  before_action :find_parent_test, only: %i[index new]
+  before_action :find_parent_test, only: %i[index new create]
   before_action :find_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
@@ -21,7 +21,7 @@ class QuestionsController < ApplicationController
   end
 
   def create
-    @question = Question.new(resource_params)
+    @question = @test.question.new(resource_params)
     if @question.save
       redirect_to @question.test
     else
@@ -37,7 +37,7 @@ class QuestionsController < ApplicationController
   private
 
   def resource_params
-    params.require(:question).permit(:body, :test_id)
+    params.require(:question).permit(:body)
   end
 
   def find_parent_test
