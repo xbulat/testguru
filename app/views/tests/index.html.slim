@@ -1,4 +1,8 @@
-ul
-- @tests.sorted_by_title.each do |t|
-  li
-    a href=(test_path t) =t.title
+h1 TestGuru
+h2 Index
+
+- if @tests.any?
+  = render 'list'
+
+p
+  a href=(new_test_path) Add test

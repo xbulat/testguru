@@ -1,8 +1,5 @@
-ul
-  - @test.question.ids.each do |q|
-    li
-      a href=(question_path q) Question #{q}
-      = button_to "del", question_path(q), method: :delete, data: {confirm: 'Are you sure?'}
+= render 'list', resource: @test
 
-li
-  a href=(new_test_question_path @test) Add question
+p
+  a< href=(test_path @test) Back
+  a< href=(new_test_question_path @test) Add question
