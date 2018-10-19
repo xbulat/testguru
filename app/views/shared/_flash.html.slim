@@ -1,5 +1,5 @@
 - flash.each do |type, messages|
-  div.flash
+  div.flash *{class: [type]}
     ul
       - if messages.any?
       - messages.each do |msg|
