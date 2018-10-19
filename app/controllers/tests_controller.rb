@@ -19,7 +19,7 @@ class TestsController < ApplicationController
     if @test.save
       redirect_to @test
     else
-      flash.alert = @test.errors.full_messages.join(' ')
+      flash.alert = @test.errors.full_messages
       render :edit
     end
   end
@@ -30,7 +30,7 @@ class TestsController < ApplicationController
     if @test.update!(resource_params)
       redirect_to @test
     else
-      flash.alert = @test.errors.full_messages.join(' ')
+      flash.alert = @test.errors.full_messages
       render :edit
     end
   end

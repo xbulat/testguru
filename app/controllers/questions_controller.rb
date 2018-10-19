@@ -15,7 +15,7 @@ class QuestionsController < ApplicationController
     if @question.update(resource_params)
       redirect_to test_path(@question.test)
     else
-      flash[:alert] = @question.errors.full_messages.join(' ')
+      flash[:alert] = @question.errors.full_messages
       render :edit
     end
   end
@@ -25,7 +25,7 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question.test
     else
-      flash.alert = @question.errors.full_messages.join(' ')
+      flash.alert = @question.errors.full_messages
       render :edit
     end
   end

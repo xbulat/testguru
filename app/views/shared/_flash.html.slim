@@ -1,3 +1,6 @@
-- flash.each do |type, message|
-  .flash
-    = message
+- flash.each do |type, messages|
+  div.flash
+    ul
+      - if messages.any?
+      - messages.each do |msg|
+        li = msg

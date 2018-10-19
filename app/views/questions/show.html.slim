@@ -2,3 +2,6 @@ h1 Test: #{@question.test.title}
 
 h2 Question body
 = @question.body
+
+p
+  = link_to 'Back', test_path(@question.test)
