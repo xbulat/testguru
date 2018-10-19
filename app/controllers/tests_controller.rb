@@ -1,5 +1,6 @@
 class TestsController < ApplicationController
   before_action :find_test, only: %i[show destroy edit update]
+
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_test_not_found
 
   def index
@@ -8,13 +9,8 @@ class TestsController < ApplicationController
 
   def show; end
 
-  def new;
+  def new
     @test = Test.new
-  end
-
-  def update
-    @test.update!(resource_params)
-    redirect_to @test
   end
 
   def create
@@ -23,11 +19,21 @@ class TestsController < ApplicationController
     if @test.save
       redirect_to @test
     else
+      flash.alert = @test.errors.full_messages.join(' ')
       render :edit
     end
   end
 
   def edit; end
+
+  def update
+    if @test.update!(resource_params)
+      redirect_to @test
+    else
+      flash.alert = @test.errors.full_messages.join(' ')
+      render :edit
+    end
+  end
 
   def destroy
     @test.destroy
@@ -35,6 +41,7 @@ class TestsController < ApplicationController
   end
 
   private
+
   def resource_params
     params.require(:test).permit(:title, :level, :category_id, :user_id)
   end
@@ -44,6 +51,6 @@ class TestsController < ApplicationController
   end
 
   def rescue_with_test_not_found
-    render inline: "Test not found [404]", status: 404
+    render inline: 'Test not found [404]', status: 404
   end
 end

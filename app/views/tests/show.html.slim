@@ -4,8 +4,12 @@ h2 #{@test.title}
 h2 Level: #{@test.level}
 h2 Author: #{@test.author.email}
 
-= render 'questions/list', resource: @test
+table
+  tr
+    td Body
+    td Actions
+  = render @test.question
 
-a< href=(tests_path) Back
-a< href=(new_test_question_path @test) Add question
-a< href=(edit_test_path @test) Edit test
+=< link_to 'Back', tests_path
+=< link_to 'Add question', new_test_question_path(@test)
+=< link_to 'Edit test', edit_test_path(@test)

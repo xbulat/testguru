@@ -1,8 +1,6 @@
 module QuestionsHelper
-  def question_header(obj, action)
-    template = { new: 'Create New %s Question',
-                 edit: 'Edit %s Question' }
-
-    template.fetch(action.to_sym) % obj.title if obj.respond_to?(:title)
+  def question_header(obj)
+    template = obj.persisted? ? 'Edit %s question' : 'Create new %s question'
+    template % obj.test.title
   end
 end

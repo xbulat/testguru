@@ -1,8 +1,13 @@
 h1 TestGuru
 h2 Index
 
-- if @tests.any?
-  = render 'list'
+table
+  tr
+    td Title
+    td Level
+    td Questions
+    td Actions
+  = render @tests
 
 p
-  a href=(new_test_path) Add test
+  = link_to 'Add new test', new_test_path

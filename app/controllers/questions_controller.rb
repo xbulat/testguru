@@ -1,23 +1,23 @@
 class QuestionsController < ApplicationController
-  before_action :find_parent_test, only: %i[index new create]
+  before_action :find_parent_test, only: %i[new create]
   before_action :find_question, only: %i[show destroy edit update]
 
   rescue_from ActiveRecord::RecordNotFound, with: :rescue_with_question_not_found
   rescue_from ActiveRecord::RecordInvalid, with: :rescue_with_invalid_record
 
-  def index; end
-
   def show; end
-
-  def edit; end
 
   def new
     @question = @test.question.new
   end
 
   def update
-    @question.update!(resource_params)
-    redirect_to test_path @question.test
+    if @question.update(resource_params)
+      redirect_to test_path(@question.test)
+    else
+      flash[:alert] = @question.errors.full_messages.join(' ')
+      render :edit
+    end
   end
 
   def create
@@ -25,13 +25,16 @@ class QuestionsController < ApplicationController
     if @question.save
       redirect_to @question.test
     else
+      flash.alert = @question.errors.full_messages.join(' ')
       render :edit
     end
   end
 
+  def edit; end
+
   def destroy
     @question.destroy
-    redirect_to test_path @question.test
+    redirect_to test_path(@question.test)
   end
 
   private
@@ -53,6 +56,6 @@ class QuestionsController < ApplicationController
   end
 
   def rescue_with_invalid_record
-    render inline: 'Cannot commit record [402]'
+    render inline: 'Cannot commit record [422]'
   end
 end
