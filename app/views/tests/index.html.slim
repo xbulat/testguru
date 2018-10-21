@@ -1,4 +1,13 @@
-ul
-- @tests.sorted_by_title.each do |t|
-  li
-    a href=(test_path t) =t.title
+h1 TestGuru
+h2 Index
+
+table
+  tr
+    td Title
+    td Level
+    td Questions
+    td Actions
+  = render @tests
+
+p
+  = link_to 'Add new test', new_test_path

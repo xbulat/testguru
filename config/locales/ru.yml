@@ -24,14 +24,27 @@
 # Instead, surround them with single quotes.
 #
 # en:
-#   'true': 'foo'
+#   'true':               'foo'
 #
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ru:
-  hello: "Привет!"
+  hello:                  'Привет!'
   activerecord:
     errors:
       messages:
-        record_invalid: "Не удалось записать в базу"
+        record_invalid:   'не удалось записать в базу'
+      models:
+        question:
+          attributes:
+            body:
+              blank:      'поле не может быть пустым'
+        test:
+          attributes:
+            category:
+              required: 'поле не установлено'
+            author:
+              required: 'поле не установлено'
+            title:
+              blank: 'поле не может быть пустым'

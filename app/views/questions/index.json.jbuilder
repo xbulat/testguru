@@ -1,1 +1,0 @@
-json.array! @test.question
