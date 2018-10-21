@@ -8,29 +8,27 @@ class QuestionsController < ApplicationController
   def show; end
 
   def new
-    @question = @test.question.new
+    @question = @test.questions.new
   end
+
+  def create
+    @question = @test.questions.new(resource_params)
+    if @question.save
+      redirect_to @question.test
+    else
+      render :new
+    end
+  end
+
+  def edit; end
 
   def update
     if @question.update(resource_params)
       redirect_to test_path(@question.test)
     else
-      flash[:alert] = @question.errors.full_messages
       render :edit
     end
   end
-
-  def create
-    @question = @test.question.new(resource_params)
-    if @question.save
-      redirect_to @question.test
-    else
-      flash.alert = @question.errors.full_messages
-      render :edit
-    end
-  end
-
-  def edit; end
 
   def destroy
     @question.destroy

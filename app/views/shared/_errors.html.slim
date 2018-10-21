@@ -1,0 +1,6 @@
+- if resource.errors.present?
+  div
+    h2 #{pluralize(resource.errors.count, 'error')} detected
+    ul
+      - resource.errors.full_messages.each do |msg|
+        li = msg

@@ -19,18 +19,16 @@ class TestsController < ApplicationController
     if @test.save
       redirect_to @test
     else
-      flash.alert = @test.errors.full_messages
-      render :edit
+      render :new
     end
   end
 
   def edit; end
 
   def update
-    if @test.update!(resource_params)
+    if @test.update(resource_params)
       redirect_to @test
     else
-      flash.alert = @test.errors.full_messages
       render :edit
     end
   end

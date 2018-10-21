@@ -1,3 +1,6 @@
+h2 = question_header(@question)
+
+= render 'shared/errors', resource: @question
 = form_with model: [@test, @question], local: true do |f|
   div.field
     = f.label :body

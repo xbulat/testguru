@@ -1,6 +1,6 @@
 module QuestionsHelper
-  def question_header(obj)
-    template = obj.persisted? ? 'Edit %s question' : 'Create new %s question'
-    template % obj.test.title
+  def question_header(question)
+    template = question.persisted? ? 'Edit %s question' : 'Create new %s question'
+    template % question.test.title
   end
 end
