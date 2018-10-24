@@ -1,4 +1,4 @@
 h1 The test #{@user_passed_test.test.title} was Completed!
-= render 'rate_msg', results: @user_passed_test.results, style: result_text_color(@user_passed_test.results)
+= render 'rate_msg', results: @user_passed_test.results, msg: result_message(@user_passed_test.results)
 p
   = link_to 'Return to Tests', tests_path
