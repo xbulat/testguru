@@ -1,0 +1,13 @@
+h1 Passing the #{@user_passed_test.test.title} Test
+
+h3 Question (#{@user_passed_test.current_question_number} of #{@user_passed_test.total_questions})
+b = @user_passed_test.current_question.body
+
+= form_with url: user_passed_test_path(@user_passed_test), method: :put, local: true do |f|
+  = f.collection_check_boxes :answer_ids, @user_passed_test.current_question.answers, :id, :body, include_hidden: false do |b|
+    p
+      = b.check_box id: "answer_ids_#{b.object.id}"
+      = b.label
+
+  div.actions
+    = f.submit 'Next'
