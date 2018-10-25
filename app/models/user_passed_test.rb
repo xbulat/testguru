@@ -12,12 +12,12 @@ class UserPassedTest < ApplicationRecord
   end
 
   def accept!(answer_ids)
-    self.correct_questions += 1 if correct_answer?(answer_ids)
+    self.correct_questions += 1 if (correct_answer?(answer_ids) && answer_ids.present?)
     save!
   end
 
   def current_question_number
-    test.questions.order(:id).ids.index(current_question.id) + 1
+    test.questions.order(:id).where('id < ?', current_question.id).count + 1
   end
 
   def total_questions

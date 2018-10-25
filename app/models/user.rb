@@ -13,6 +13,6 @@ class User < ApplicationRecord
   end
 
   def user_passed_test(test)
-    user_passed_tests.order(created_at: :desc ).find_by(test_id: test.id)
+    user_passed_tests.order(created_at: :desc ).find_by(test: test)
   end
 end
