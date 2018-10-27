@@ -1,0 +1,11 @@
+= form_with url: sessions_path, local: true do |f|
+  div.field
+    = f.label :email
+    br
+    = f.text_field :email
+    div.field
+    = f.label :password
+    br
+    = f.password_field :password
+  div.actions
+    = f.submit 'Log in'
