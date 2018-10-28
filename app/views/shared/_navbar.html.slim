@@ -1,0 +1,7 @@
+div.project_name
+  =< link_to 'TestGuru', root_path
+div.navbar_user
+  - if logged_in?
+    = render 'shared/navbar_logged'
+  - else
+    = render 'shared/navbar_unreg'

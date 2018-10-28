@@ -1,6 +1,10 @@
 = render 'shared/errors', resource: @test
 = form_for @test, local: true do |f|
   div.field
+    = f.label :category_id
+    br
+    = f.collection_select :category_id, Category.all, :id, :title, prompt: true
+  div.field
     = f.label :title
     br
     = f.text_area :title
@@ -8,16 +12,7 @@
     = f.label :level
     br
     = f.number_field :level
-  div.field
-    = f.label :category_id
-    br
-    = f.collection_select :category_id, Category.all, :id, :title, prompt: true
-  div.field
-    = f.label :user_id
-    br
-    = f.collection_select :user_id, User.all, :id, :email, prompt: true
   div.actions
     = f.submit
-
-h2
+p
   = link_to 'Back', tests_path

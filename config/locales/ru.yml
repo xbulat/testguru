@@ -48,3 +48,16 @@ ru:
               required: 'поле не установлено'
             title:
               blank: 'поле не может быть пустым'
+        user:
+          attributes:
+            password:
+              blank: 'поле не может быть пустым'
+            password_confirmation:
+              confirmation: 'пароли не совпадают'
+            first_name:
+              blank: 'поле не может быть пустым'
+            last_name:
+              blank: 'поле не может быть пустым'
+            email:
+              blank: 'поле не может быть пустым'
+              invalid: 'указан неверный формат'

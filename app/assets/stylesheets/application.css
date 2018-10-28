@@ -13,3 +13,15 @@
  *= require_tree .
  *= require_self
  */
+
+div.project_name {
+  width: 50%;
+  text-align: left;
+  font-size: 20pt;
+  font-weight: bold;
+  float: left;
+}
+
+.project_name a {
+  text-decoration: none;
+}
