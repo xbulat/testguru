@@ -8,8 +8,10 @@ class ApplicationController < ActionController::Base
   private
 
   def authenticate_user!
-    store_location
-    redirect_to login_path, notice: 'Please introduce yourself' unless current_user
+    unless logged_in?
+      store_location
+      redirect_to login_path, notice: 'Please introduce yourself'
+    end
   end
 
   def current_user
@@ -21,8 +23,7 @@ class ApplicationController < ActionController::Base
   end
 
   def redirect_back_or(default)
-    redirect_to(session[:forwarding_url] || default)
-    session.delete(:forwarding_url)
+    redirect_to(session.delete(:forwarding_url) || default)
   end
 
   def store_location
