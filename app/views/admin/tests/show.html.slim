@@ -1,0 +1,17 @@
+h1 Category: #{@test.category.title}
+
+h2 Test: #{@test.title}
+h3 Level: #{@test.level}
+h3 Author: #{@test.author.email}
+
+table
+  tr
+    td Body
+    td Answers
+    td Actions
+  /= render partial: 'admin/questions/question', collection: @test.questions
+  = render @test.questions
+
+=< link_to 'Back', admin_tests_path
+=< link_to 'Add question', new_admin_test_question_path(@test)
+=< link_to 'Edit test', edit_admin_test_path(@test)

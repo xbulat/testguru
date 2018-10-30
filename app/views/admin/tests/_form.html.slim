@@ -1,5 +1,5 @@
 = render 'shared/errors', resource: @test
-= form_for @test, local: true do |f|
+= form_with model:[:admin, @test], local: true do |f|
   div.field
     = f.label :category_id
     br
@@ -15,4 +15,4 @@
   div.actions
     = f.submit
 p
-  = link_to 'Back', tests_path
+  = link_to 'Back', admin_tests_path
