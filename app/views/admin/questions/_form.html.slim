@@ -1,7 +1,7 @@
 h2 = question_header(@question)
 
 = render 'shared/errors', resource: @question
-= form_with model: [@test, @question], local: true do |f|
+= form_with model: [:admin, @test, @question], local: true do |f|
   div.field
     = f.label :body
     br
@@ -10,4 +10,4 @@ h2 = question_header(@question)
     = f.submit
 
 p
-  = link_to 'Back', test_path(@question.test)
+  = link_to 'Back', admin_test_path(@question.test)

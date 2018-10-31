@@ -31,6 +31,10 @@
 
 ru:
   hello:                  'Привет!'
+  users:
+    sessions:
+      create:
+        signed_in: "Привет, %{name}!"
   activerecord:
     errors:
       messages:
