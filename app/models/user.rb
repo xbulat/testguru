@@ -21,4 +21,16 @@ class User < ApplicationRecord
   def user_passed_test(test)
     user_passed_tests.order(created_at: :desc ).find_by(test: test)
   end
+
+  def display_name
+    first_name.capitalize
+  end
+
+  def guru?
+    self.is_a? User
+  end
+
+  def admin?
+    self.is_a? Admin
+  end
 end

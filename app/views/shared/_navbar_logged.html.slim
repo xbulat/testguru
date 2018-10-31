@@ -1,7 +1,7 @@
 | Welcome,
-=<> current_user.first_name.capitalize
+=<> current_user.display_name
 | Guru |
-- current_user.is_a?(Admin)
+- current_user.admin?
   =< link_to 'Admin', admin_tests_path
   | |
 =< link_to 'Logout', destroy_user_session_path, method: :delete
