@@ -1,67 +1,153 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true':               'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
+---
 ru:
-  hello:                  'Привет!'
-  users:
-    sessions:
-      create:
-        signed_in: "Привет, %{name}!"
   activerecord:
     errors:
       messages:
-        record_invalid:   'не удалось записать в базу'
+        record_invalid: не удалось записать в базу
       models:
         question:
           attributes:
             body:
-              blank:      'поле не может быть пустым'
+              blank: поле не может быть пустым
         test:
           attributes:
-            category:
-              required: 'поле не установлено'
             author:
-              required: 'поле не установлено'
+              required: поле не установлено
+            category:
+              required: поле не установлено
             title:
-              blank: 'поле не может быть пустым'
+              blank: поле не может быть пустым
         user:
           attributes:
-            password:
-              blank: 'поле не может быть пустым'
-            password_confirmation:
-              confirmation: 'пароли не совпадают'
-            first_name:
-              blank: 'поле не может быть пустым'
-            last_name:
-              blank: 'поле не может быть пустым'
             email:
-              blank: 'поле не может быть пустым'
-              invalid: 'указан неверный формат'
+              blank: поле не может быть пустым
+              invalid: указан неверный формат
+            first_name:
+              blank: поле не может быть пустым
+            last_name:
+              blank: поле не может быть пустым
+            password:
+              blank: поле не может быть пустым
+            password_confirmation:
+              confirmation: пароли не совпадают
+  admin:
+    answers:
+      create:
+        notice: Ответ успешно создан
+      destroy:
+        notice: Ответ успешно удален
+      edit:
+        header: Редактировать ответ
+      new:
+        header: Создать ответ
+      show:
+        answer: 'Ответ: %{body}'
+        correct: 'Правильный ответ: %{correct}'
+        question: 'Вопрос: %{body}'
+      update:
+        notice: Ответ успешно обновлен
+    questions:
+      answers:
+        add_link: Добавить ответ
+        title: Список вопросов
+      create:
+        notice: Вопрос успешно создан
+      destroy:
+        notice: Вопрос успешно удален
+      show:
+        add_link: Добавить ответ
+        header: Тест %{title}
+        not_found: Вопрос не найден
+        question: 'Вопрос: %{body}'
+        title: Список ответов
+      update:
+        notice: Вопрос успешно обновлен
+    tests:
+      create:
+        notice: Тест %{title} успешно создан
+      destroy:
+        notice: Тест успешно удален
+      edit:
+        header: Редактирование теста
+      index:
+        header: Список тестов
+        new_test: Добавить тест
+        table:
+          actions: Действия
+          level: Уровень
+          question: Вопросы
+          title: Навание
+      new:
+        header: Создание теста
+      show:
+        add_question: Добавить новые вопросы
+        edit_test: Редактировать тест
+        header: Тест %{title}
+        not_found: Тест не найден
+        test_actions: Действия
+        test_answers: Ответы
+        test_author: 'Автор: %{author}'
+        test_body: Список вопросов
+        test_level: Сложность %{level}
+        test_title: 'Тест: %{title}'
+      update:
+        notice: Тест успешно обновлен
+  errors:
+    admin_required: Требуются права администратора
+    form:
+      few: Обнаружено %{count} ошибки
+      many: Обнаружено %{count} ошибoк
+      one: Обнаружена %{count} ошибка
+    invalid_record: Ошибка записи
+    questions:
+      not_found: Вопрос не найден
+    tests:
+      not_found: Тест не найден
+  helpers:
+    label:
+      test:
+        category_id: Категория
+        level: Уровень
+        title: Название
+    select:
+      prompt: 'Выберите: '
+    submit:
+      create: Создать %{model}
+      submit: Сохранить %{model}
+      update: Обновить %{model}
+  logout: Выйти
+  navigating:
+    back: Назад
+    delete:
+      confirm: Вы уверены?
+      name: Удалить
+    edit: Редактировать
+    show: Показать
+  tests:
+    index:
+      header: Список тестов
+      table:
+        actions: Действия
+        level: Уровень
+        question: Вопросы
+        title: Навание
+    start:
+      not_found: Не удалось найти тест для прохождения
+    test:
+      start: Пройти тест
+  user_passed_tests:
+    result:
+      back_link: Вернуться к тестам
+      failed: Тест не выполнен
+      header: Тест %{title} был завершен!
+      passed: Тест успешно пройден
+      result_msg_end: правильных ответов
+      result_msg_start: 'Ваш результат: '
+    show:
+      header: 'Идет прохождение теста: %{title}'
+      progress: Вопрос %{current} из %{total}
+  users:
+    sessions:
+      create:
+        signed_in: Добро пожаловать, %{name}
+  welcome_msg: 'Привет, '

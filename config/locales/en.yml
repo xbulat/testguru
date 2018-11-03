@@ -1,37 +1,164 @@
-# Files in the config/locales directory are used for internationalization
-# and are automatically loaded by Rails. If you want to use locales other
-# than English, add the necessary files in this directory.
-#
-# To use the locales, use `I18n.t`:
-#
-#     I18n.t 'hello'
-#
-# In views, this is aliased to just `t`:
-#
-#     <%= t('hello') %>
-#
-# To use a different locale, set it with `I18n.locale`:
-#
-#     I18n.locale = :es
-#
-# This would use the information in config/locales/es.yml.
-#
-# The following keys must be escaped otherwise they will not be retrieved by
-# the default I18n backend:
-#
-# true, false, on, off, yes, no
-#
-# Instead, surround them with single quotes.
-#
-# en:
-#   'true': 'foo'
-#
-# To learn more, please read the Rails Internationalization guide
-# available at http://guides.rubyonrails.org/i18n.html.
-
+---
 en:
-  hello: "Hello world"
+  activerecord:
+    errors:
+      messages:
+        record_invalid: could not write to database
+      models:
+        question:
+          attributes:
+            body:
+              blank: field cannot be blank
+        test:
+          attributes:
+            author:
+              required: field does not filled
+            category:
+              required: field does not filled
+            title:
+              blank: field cannot be blank
+        user:
+          attributes:
+            email:
+              blank: field cannot be blank
+              invalid: wrong format
+            first_name:
+              blank: field cannot be blank
+            last_name:
+              blank: field cannot be blank
+  admin:
+    answers:
+      create:
+        notice: Answer has been created
+      destroy:
+        notice: Answer has been deleted
+      edit:
+        header: Edit answer
+      new:
+        header: Create new answer
+      show:
+        answer: 'Answer: %{body}'
+        correct: 'Currect answer: %{correct}'
+        question: 'Question: %{body}'
+      update:
+        notice: Answer has been updated
+    questions:
+      answers:
+        add_link: Add answer
+        title: Answers
+      create:
+        notice: Question has been created
+      destroy:
+        notice: Answer has been deleted
+      show:
+        add_link: Add answer
+        header: Test %{title}
+        not_found: Question not found
+        question: 'Question: %{body}'
+        title: Answers
+      update:
+        notice: Question has been updated
+    tests:
+      create:
+        notice: Test %{title} has been created
+      destroy:
+        notice: Test has been deleted
+      edit:
+        header: Edit test
+      index:
+        header: Test list
+        new_test: Add test
+        table:
+          actions: Actions
+          level: Level
+          question: Question
+          title: Title
+      new:
+        header: New test
+      show:
+        add_question: Add new question
+        edit_test: Edit test
+        header: Test %{title}
+        not_found: Test not found
+        test_actions: Actions
+        test_answers: Answers
+        test_author: 'Author: %{author}'
+        test_body: Questions list
+        test_level: 'Level: %{level}'
+        test_title: 'Test: %{title}'
+      update:
+        notice: Test has been updated
+  devise:
+    registrations:
+      edit:
+        title: Title
+        update: Update
+      new:
+        header: Header
+        sign_up: Sign up
+    sessions:
+      new:
+        header: Header
+        sign_in: Sign in
+    shared:
+      links:
+        sign_in: Sign in
+        sign_up: Sign up
+  errors:
+    admin_required: Admin permissions required
+    form:
+      many: Found %{count} errors
+      one: Found %{count} error
+    invalid_record: could not write to database
+    questions:
+      not_found: Question not found
+    tests:
+      not_found: Test not found
+  helpers:
+    label:
+      test:
+        category_id: Category
+        level: Level
+        title: Title
+    select:
+      prompt: 'Please select: '
+    submit:
+      create: Create %{model}
+      submit: Save %{model}
+      update: Update %{model}
+  logout: Logout
+  navigating:
+    back: Back
+    delete:
+      confirm: Are you sure?
+      name: Delete
+    edit: Edit
+    show: Show
+  tests:
+    index:
+      header: Test list
+      table:
+        actions: Actions
+        level: Level
+        question: Questions
+        title: Title
+    start:
+      not_found: Test not found
+    test:
+      start: Start test
+  user_passed_tests:
+    result:
+      back_link: Back to tests
+      failed: Test failed
+      header: Test %{title} has been completed!
+      passed: Test passed successfully
+      result_msg_end: correct answers
+      result_msg_start: 'Your result: '
+    show:
+      header: 'You are passing test: %{title}'
+      progress: Question %{current} from %{total}
   users:
     sessions:
       create:
-        signed_in: "Hello, %{name}!"
+        signed_in: Welcome, %{name}
+  welcome_msg: 'Hi, '
