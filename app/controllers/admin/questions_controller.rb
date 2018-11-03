@@ -14,7 +14,7 @@ class Admin::QuestionsController < Admin::BaseController
   def create
     @question = @test.questions.new(resource_params)
     if @question.save
-      redirect_to admin_test_path(@question.test)
+      redirect_to admin_test_path(@question.test), notice: t('.notice')
     else
       render :new
     end
@@ -24,7 +24,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def update
     if @question.update(resource_params)
-      redirect_to admin_test_path(@question.test)
+      redirect_to admin_test_path(@question.test), notice: t('.notice')
     else
       render :edit
     end
@@ -32,7 +32,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def destroy
     @question.destroy
-    redirect_to admin_test_path(@question.test)
+    redirect_to admin_test_path(@question.test), notice: t('.notice')
   end
 
   private
@@ -50,10 +50,10 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def rescue_with_question_not_found
-    render inline: 'Question not found [404]', status: 404
+    render inline: t('errors.questions.not_found'), status: 404
   end
 
   def rescue_with_invalid_record
-    render inline: 'Cannot commit record [422]'
+    render inline: t('errors.invalid_record')
   end
 end
