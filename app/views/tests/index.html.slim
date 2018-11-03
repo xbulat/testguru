@@ -1,9 +1,9 @@
-h2 Tests list
+h2 = t('.header')
 
 table
   tr
-    td Title
-    td Level
-    td Questions
-    td Actions
+    td = t('.table.title')
+    td = t('.table.level')
+    td = t('.table.question')
+    td = t('.table.actions')
   = render @tests
