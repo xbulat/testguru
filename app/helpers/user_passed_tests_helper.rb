@@ -4,6 +4,6 @@ module UserPassedTestsHelper
   end
 
   def result_css_style(user_passed_test)
-    user_passed_test.success? ? 'passed' : 'failed'
+    user_passed_test.success? ? 'alert-success' : 'alert-danger'
   end
 end
