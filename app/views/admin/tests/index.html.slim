@@ -1,11 +1,11 @@
 h2.display-4 = t('.header')
-table class=["table table-striped "]
+table class=["table table-striped"]
   thead.thead-light
-  tr
+  tr.table-primary
     th = t('.table.title')
     th = t('.table.level')
     th = t('.table.question')
-    th = t('.table.actions')
+    th.text-center = t('.table.actions')
   tbody
   = render @tests
 p
