@@ -1,2 +1,3 @@
 - flash.each do |type, msg|
-  div class=[:flash, type] #{msg}
+  div class=[alert_css_style(type)]
+    h6.alert-heading = msg

@@ -2,6 +2,6 @@ tr
   td = question.body
   td = question.answers.count
   td
-    =< link_to t('navigating.show'), admin_question_path(question)
-    =< link_to t('navigating.edit'), edit_admin_question_path(question)
-    =< link_to t('navigating.delete.name'), admin_question_path(question), method: :delete, data: {confirm: t('navigating.delete.confirm')}
+    =< link_to t('navigating.show'), admin_question_path(question), class: "btn btn-outline-primary btn-sm"
+    =< link_to t('navigating.edit'), edit_admin_question_path(question), class: "btn btn-outline-secondary btn-sm"
+    =< link_to t('navigating.delete.name'), admin_question_path(question), method: :delete, data: {confirm: t('navigating.delete.confirm')}, class: "btn btn-outline-danger btn-sm"

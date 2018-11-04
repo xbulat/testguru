@@ -2,15 +2,14 @@ h2 = @answer.question.body
 
 = render 'shared/errors', resource: @answer
 = form_with model: [:admin, @question, @answer], local: true do |f|
-  div.field
-    = f.label :body
-    br
-    = f.text_area :body, row: 7, cols: 60
-  div.field
-    = f.label :correct
-    br
-    = f.check_box :correct
-  div.actions
-    = f.submit
+  div.form-group
+    p
+      = f.label :body
+      = f.text_area :body, class: 'form-control'
+    div.form_check
+      p
+        = f.label :correct, class: 'form-check-label'
+        = f.check_box :correct, class: 'form-check-input ml-2 mt-2'
+    = f.submit class: 'btn btn-primary'
 p
-  = link_to t('navigating.back'), admin_question_path(@answer.question)
+  = link_to t('navigating.back'), admin_question_path(@answer.question), class: "btn btn-outline-dark btn-sm"
