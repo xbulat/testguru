@@ -78,7 +78,7 @@ en:
       show:
         add_question: Add new question
         edit_test: Edit test
-        header: Test %{title}
+        header: 'Category %{title}'
         not_found: Test not found
         test_actions: Actions
         test_answers: Answers
@@ -129,6 +129,7 @@ en:
   logout: Logout
   navigating:
     back: Back
+    admin: Admin panel
     delete:
       confirm: Are you sure?
       name: Delete
@@ -152,8 +153,7 @@ en:
       failed: Test failed
       header: Test %{title} has been completed!
       passed: Test passed successfully
-      result_msg_end: correct answers
-      result_msg_start: 'Your result: '
+      result_msg_html: 'Your result: <b>%{percent}%</b> correct answers'
     show:
       header: 'You are passing test: %{title}'
       progress: Question %{current} from %{total}
