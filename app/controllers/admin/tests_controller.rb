@@ -17,7 +17,7 @@ class Admin::TestsController < Admin::BaseController
     @test = current_user.author_tests.new(resource_params)
 
     if @test.save
-      redirect_to admin_test_path(@test)
+      redirect_to admin_test_path(@test), notice: t('.notice', title: @test.title)
     else
       render :new
     end
@@ -27,7 +27,7 @@ class Admin::TestsController < Admin::BaseController
 
   def update
     if @test.update(resource_params)
-      redirect_to admin_test_path(@test)
+      redirect_to admin_test_path(@test), notice: t('.notice')
     else
       render :edit
     end
@@ -35,7 +35,7 @@ class Admin::TestsController < Admin::BaseController
 
   def destroy
     @test.destroy
-    redirect_to admin_tests_path
+    redirect_to admin_tests_path, notice: t('.notice')
   end
 
   private
@@ -49,6 +49,6 @@ class Admin::TestsController < Admin::BaseController
   end
 
   def rescue_with_test_not_found
-    render inline: 'Test not found [404]', status: 404
+    render inline: t('errors.tests.not_found'), status: 404
   end
 end

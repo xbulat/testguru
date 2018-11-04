@@ -2,6 +2,6 @@ tr
   td = question.body
   td = question.answers.count
   td
-    =< link_to 'Show', admin_question_path(question)
-    =< link_to 'Edit', edit_admin_question_path(question)
-    =< link_to 'Delete', admin_question_path(question), method: :delete, data: {confirm: 'Are you sure?'}
+    =< link_to t('navigating.show'), admin_question_path(question)
+    =< link_to t('navigating.edit'), edit_admin_question_path(question)
+    =< link_to t('navigating.delete.name'), admin_question_path(question), method: :delete, data: {confirm: t('navigating.delete.confirm')}

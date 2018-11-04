@@ -1,10 +1,10 @@
-h2 Tests list
+h2 = t('.header')
 table
   tr
-    td Title
-    td Level
-    td Questions
-    td Actions
+    td = t('.table.title')
+    td = t('.table.level')
+    td = t('.table.question')
+    td = t('.table.actions')
   = render @tests
 p
-  = link_to 'Add new test', new_admin_test_path
+  = link_to t('.new_test'), new_admin_test_path

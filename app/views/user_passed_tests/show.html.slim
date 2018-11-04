@@ -1,6 +1,6 @@
-h1 Passing the #{@user_passed_test.test.title} Test
+h1 = t('.header', title: @user_passed_test.test.title)
 
-h3 Question (#{@user_passed_test.current_question_number} of #{@user_passed_test.total_questions})
+h3 = t('.progress', current: @user_passed_test.current_question_number, total: @user_passed_test.total_questions)
 b = @user_passed_test.current_question.body
 
 = form_with url: user_passed_test_path(@user_passed_test), method: :put, local: true do |f|
@@ -10,4 +10,4 @@ b = @user_passed_test.current_question.body
       = b.label
 
   div.actions
-    = f.submit 'Next'
+    = f.submit

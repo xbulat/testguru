@@ -3,6 +3,6 @@ tr
   td = test.level
   td = test.questions.count
   td
-    =< link_to 'Show', admin_test_path(test)
-    =< link_to 'Edit', edit_admin_test_path(test)
-    =< link_to 'Delete', admin_test_path(test), method: :delete, data: {confirm: 'Are you sure?'}
+    =< link_to t('navigating.show'), admin_test_path(test)
+    =< link_to t('navigating.edit'), edit_admin_test_path(test)
+    =< link_to t('navigating.delete.name'), admin_test_path(test), method: :delete, data: {confirm: t('navigating.delete.confirm')}

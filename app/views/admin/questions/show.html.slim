@@ -1,13 +1,13 @@
-h1 Test: #{@question.test.title}
-h2 Question: #{@question.body}
+h1 = t('.header', title: @question.test.title)
+h2 = t('.question', body: @question.body)
 
-h3 Answers
+h3 = t('.title')
 p
-  = link_to 'Add answer', new_admin_question_answer_path(@question)
+  = link_to t('.add_link'), new_admin_question_answer_path(@question)
 
 ol
   = render @question.answers
 
 p
-  =< link_to 'Back', admin_test_path(@question.test)
-  =< link_to 'Edit', edit_admin_question_path(@question)
+  =< link_to t('navigating.back'), admin_test_path(@question.test)
+  =< link_to t('navigating.edit'), edit_admin_question_path(@question)
