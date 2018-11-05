@@ -1,10 +1,12 @@
-h2 = t('.header')
-table
-  tr
-    td = t('.table.title')
-    td = t('.table.level')
-    td = t('.table.question')
-    td = t('.table.actions')
+h2.display-4 = t('.header')
+table class=["table table-striped"]
+  thead.thead-light
+  tr.table-primary
+    th = t('.table.title')
+    th = t('.table.level')
+    th = t('.table.question')
+    th.text-center = t('.table.actions')
+  tbody
   = render @tests
 p
-  = link_to t('.new_test'), new_admin_test_path
+  = link_to t('.new_test'), new_admin_test_path, class: "btn btn-primary"

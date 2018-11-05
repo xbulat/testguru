@@ -1,9 +1,10 @@
-h2 = t('.header')
-
-table
-  tr
-    td = t('.table.title')
-    td = t('.table.level')
-    td = t('.table.question')
-    td = t('.table.actions')
+h2.display-4 = t('.header')
+table class=["table table-striped"]
+  thead
+    tr.table-primary
+      th = t('.table.title')
+      th = t('.table.level')
+      th = t('.table.question')
+      th = t('.table.actions')
+  tbody
   = render @tests

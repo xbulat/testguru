@@ -82,13 +82,13 @@ ru:
       show:
         add_question: Добавить новые вопросы
         edit_test: Редактировать тест
-        header: Тест %{title}
+        header: 'Категория: %{title}'
         not_found: Тест не найден
         test_actions: Действия
         test_answers: Ответы
         test_author: 'Автор: %{author}'
         test_body: Список вопросов
-        test_level: Сложность %{level}
+        test_level: 'Сложность: %{level}'
         test_title: 'Тест: %{title}'
       update:
         notice: Тест успешно обновлен
@@ -118,6 +118,7 @@ ru:
   logout: Выйти
   navigating:
     back: Назад
+    admin: Панель управления
     delete:
       confirm: Вы уверены?
       name: Удалить
@@ -141,8 +142,7 @@ ru:
       failed: Тест не выполнен
       header: Тест %{title} был завершен!
       passed: Тест успешно пройден
-      result_msg_end: правильных ответов
-      result_msg_start: 'Ваш результат: '
+      result_msg_html: 'Ваш результат: <b>%{percent}%</b> правильных ответов'
     show:
       header: 'Идет прохождение теста: %{title}'
       progress: Вопрос %{current} из %{total}

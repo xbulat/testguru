@@ -1,13 +1,15 @@
-h1 = t('.header', title: @user_passed_test.test.title)
+h2 = t('.header', title: @user_passed_test.test.title)
 
-h3 = t('.progress', current: @user_passed_test.current_question_number, total: @user_passed_test.total_questions)
-b = @user_passed_test.current_question.body
-
-= form_with url: user_passed_test_path(@user_passed_test), method: :put, local: true do |f|
-  = f.collection_check_boxes :answer_ids, @user_passed_test.current_question.answers, :id, :body, include_hidden: false do |b|
-    p
-      = b.check_box id: "answer_ids_#{b.object.id}"
-      = b.label
-
-  div.actions
-    = f.submit
+p
+  = t('.progress', current: @user_passed_test.current_question_number, total: @user_passed_test.total_questions)
+div.card
+  div.card-body
+    h5.card-title = @user_passed_test.current_question.body
+    div.form-group
+    = form_with url: user_passed_test_path(@user_passed_test), method: :put, local: true do |f|
+      = f.collection_check_boxes :answer_ids, @user_passed_test.current_question.answers, :id, :body, include_hidden: false do |b|
+        div.form-check
+          = b.check_box id: "answer_ids_#{b.object.id}", class: 'form-check-input'
+          = b.label class: 'form-check-label'
+      p
+        = f.submit class: 'btn btn-primary bt-sm mt-3'

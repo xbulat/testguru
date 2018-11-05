@@ -1,4 +1,9 @@
-= t('welcome_msg')
-=<> current_user.display_name
-| GuruAdmin |
-=< link_to t('logout'), destroy_user_session_path, method: :delete
+nav class=["navbar navbar-dark bg-dark"]
+  span.navbar-brand
+    =< link_to 'TestGuru', root_path
+  span.navbar-text
+    = t('welcome_msg')
+    b
+      =<> current_user.display_name
+    | GuruAdmin |
+    =< link_to t('logout'), destroy_user_session_path, method: :delete

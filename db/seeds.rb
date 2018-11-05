@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # users
-users = User.create!([{ first_name: 'John', last_name: 'Doe', login: 'john', email: 'john@example.com' },
-              { first_name: 'Jane', last_name: 'Doe', login: 'jane', email: 'jane@example.com' }])
+users = User.create!([{ first_name: 'John', last_name: 'Doe', email: 'john@example.com', password: 'password' },
+              { first_name: 'Jane', last_name: 'Doe', email: 'jane@example.com', password: 'password' }])
 
 # categories
 categories = %w[Language Sience Art Religion].map { |c| Category.create!(title: c) }
@@ -19,20 +19,20 @@ tests = categories.map do |c|
     Test.create!(title: "#{t} of #{c.title}",
                  level: rand(6),
                  category_id: c.id,
-                 user_id: users.sample)
+                 user_id: users.sample.id)
   end
 end.flatten
 
 # questions
 questions = tests.flat_map do |test|
   Array.new(10) do |i|
-    Question.create!(test_id: test.id, body: "#{i}. Question")
+    Question.create!(test_id: test.id, body: "Question ##{i}")
   end
 end
 
 # answers
 questions.map(&:id).each do |q|
-  Answer.create!(body: 'Example body', correct: [true, false].sample, question_id: q)
+  Answer.create!(body: 'simple answer', correct: [true, false].sample, question_id: q)
 end
 
 # passed tests

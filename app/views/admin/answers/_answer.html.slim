@@ -1,6 +1,8 @@
 li
   =< answer.body
-  br
-    =< link_to t('navigating.show'), admin_answer_path(answer)
-    =< link_to t('navigating.edit'), edit_admin_answer_path(answer)
-    =< link_to t('navigating.delete.name'), admin_answer_path(answer), method: :delete, data: {confirm: t('navigating.delete.confirm')}
+  - if answer.correct
+    | ✓
+  p
+    =< link_to t('navigating.show'), admin_answer_path(answer), class: "btn btn-outline-primary btn-sm"
+    =< link_to t('navigating.edit'), edit_admin_answer_path(answer), class: "btn btn-outline-secondary btn-sm"
+    =< link_to t('navigating.delete.name'), admin_answer_path(answer), method: :delete, data: {confirm: t('navigating.delete.confirm')}, class: "btn btn-outline-danger btn-sm"

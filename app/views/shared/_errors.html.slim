@@ -1,6 +1,6 @@
 - if resource.errors.present?
-  div
-    h2 =t('errors.form', count: resource.errors.count)
+  div class=["alert alert-danger"]
+    h5.alert-heading =t('errors.form', count: resource.errors.count)
     ul
       - resource.errors.full_messages.each do |msg|
         li = msg
