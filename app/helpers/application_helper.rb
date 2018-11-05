@@ -1,4 +1,9 @@
 module ApplicationHelper
+  ALERT_STYLE = { notice: 'alert-info',
+                  success: 'alert-success',
+                  error: 'alert-danger',
+                  alert: 'alert-warning' }.freeze
+
   def current_year
     Time.current.year
   end
@@ -8,10 +13,6 @@ module ApplicationHelper
   end
 
   def alert_css_style(type)
-    styles = { notice: 'alert alert-info',
-               success: 'alert alert-success',
-               error: 'alert alert-danger',
-               alert: 'alert alert-warning' }
-    styles.fetch(type.to_sym)
-end
+    ALERT_STYLE.fetch(type.to_sym, 'alert-info')
+  end
 end
