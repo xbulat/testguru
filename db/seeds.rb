@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # users
-users = User.create!([{ first_name: 'John', last_name: 'Doe', email: 'john@example.com', password: 'password' },
+users = User.create!([{ first_name: 'John', last_name: 'Doe', email: 'john@example.com', password: 'password', type: "Admin" },
               { first_name: 'Jane', last_name: 'Doe', email: 'jane@example.com', password: 'password' }])
 
 # categories
@@ -38,4 +38,9 @@ end
 # passed tests
 tests.map(&:id).each do |t|
   users.map(&:id).each { |u| UserPassedTest.create!(user_id: u, test_id: t) }
+end
+
+# gists
+questions.each do |q|
+  Gist.create!(user: users.sample, mash: rand(36**20).to_s(36), question: q)
 end
