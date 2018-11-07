@@ -88,6 +88,13 @@ en:
         test_title: 'Test: %{title}'
       update:
         notice: Test has been updated
+    gists:
+      index:
+        header: "User gists"
+        table:
+          mash: Gist URL
+          question: Question
+          user: Email
   devise:
     registrations:
       edit:
@@ -130,6 +137,8 @@ en:
   navigating:
     back: Back
     admin: Admin panel
+    admin_gists: Gists
+    admin_tests: Tests
     delete:
       confirm: Are you sure?
       name: Delete
@@ -157,6 +166,15 @@ en:
     show:
       header: 'You are passing test: %{title}'
       progress: Question %{current} from %{total}
+      submit: Next
+      save_gist: Save to Gist
+    gist:
+      failure: Could not create gist
+      success: 'Saved successfully. Link to your %{url}'
+  gist_question_service:
+    gist_params:
+      question: 'Question: %{question}'
+      test: 'Test: %{test}'
   users:
     sessions:
       create:

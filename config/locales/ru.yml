@@ -92,6 +92,13 @@ ru:
         test_title: 'Тест: %{title}'
       update:
         notice: Тест успешно обновлен
+    gists:
+      index:
+        header: "Gist пользователей"
+        table:
+          mash: Ссылка на Gist
+          question: Вопрос
+          user: Эл.адрес
   errors:
     admin_required: Требуются права администратора
     form:
@@ -119,6 +126,8 @@ ru:
   navigating:
     back: Назад
     admin: Панель управления
+    admin_gists: Gists
+    admin_tests: Тесты
     delete:
       confirm: Вы уверены?
       name: Удалить
@@ -146,6 +155,15 @@ ru:
     show:
       header: 'Идет прохождение теста: %{title}'
       progress: Вопрос %{current} из %{total}
+      submit: Далее
+      save_gist: Сохранить в Gist
+    gist:
+      failure: Не удалось создать Gist
+      success: 'Успешно сохранено. Ссылка на ваш %{url}'
+  gist_question_service:
+    gist_params:
+      question: 'Вопрос: %{question}'
+      test: 'Тест: %{test}'
   users:
     sessions:
       create:
