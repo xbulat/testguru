@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 2018_11_06_225255) do
   create_table "gists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.bigint "question_id"
     t.bigint "user_id"
-    t.string "mash"
+    t.string "url"
     t.index ["question_id"], name: "index_gists_on_question_id"
     t.index ["user_id"], name: "index_gists_on_user_id"
   end

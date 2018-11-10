@@ -42,5 +42,5 @@ end
 
 # gists
 questions.each do |q|
-  Gist.create!(user: users.sample, mash: rand(36**20).to_s(36), question: q)
+  Gist.create!(user: users.sample, url: "https://gist.example.com/#{SecureRandom.hex}", question: q)
 end

@@ -2,5 +2,5 @@ class Gist < ApplicationRecord
   belongs_to :question
   belongs_to :user
 
-  validates :mash, presence: true
+  validates :url, presence: true
 end

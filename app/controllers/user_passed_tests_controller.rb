@@ -1,6 +1,5 @@
 class UserPassedTestsController < ApplicationController
   before_action :find_user_passed_test, only: %i[show update result gist]
-  after_action :create_gist, only: :gist, if: -> { @result.id }
 
   def show; end
 
@@ -18,6 +17,10 @@ class UserPassedTestsController < ApplicationController
 
   def gist
     @result = GistQuestionService.new(@user_passed_test.current_question).call
+
+    current_user.gists.create!(question: @user_passed_test.current_question,
+                               url: @result.gist.html_url) if @result.success?
+
     redirect_to @user_passed_test, flash_options
   end
 
@@ -27,15 +30,9 @@ class UserPassedTestsController < ApplicationController
     @user_passed_test = UserPassedTest.find(params[:id])
   end
 
-  def create_gist
-    Gist.create!(question: @user_passed_test.current_question,
-                 user: current_user,
-                 mash: @result.id)
-  end
-
   def flash_options
-    if @result.id
-      { notice: t('.success',  url: view_context.link_to('gist.github.com', @result.html_url, target: :blank)) }
+    if @result.success?
+      { notice: t('.success',  url: view_context.link_to('gist.github.com', @result.gist.html_url, target: :blank)) }
     else
       { alert: t('.failure') }
     end

@@ -3,7 +3,7 @@ class CreateGists < ActiveRecord::Migration[5.2]
     create_table :gists do |t|
       t.references :question, foreign_key: true
       t.references :user, foreign_key: true
-      t.string :mash
+      t.string :url
     end
   end
 end
