@@ -3,7 +3,7 @@ class GistQuestionService
     @question = question
     @test = @question.test
     @client = client
-    result_object
+    ensure_result_object
   end
 
   def call
@@ -12,7 +12,7 @@ class GistQuestionService
   end
 
   private
-  def result_object
+  def ensure_result_object
     @result_object = Struct.new(:success?, :gist)
   end
 

@@ -41,6 +41,6 @@ tests.map(&:id).each do |t|
 end
 
 # gists
-questions.each do |q|
+questions.slice(0..10).each do |q|
   Gist.create!(user: users.sample, url: "https://gist.example.com/#{SecureRandom.hex}", question: q)
 end
