@@ -1,7 +1,9 @@
 h2 = t('.header', title: @user_passed_test.test.title)
 
 p
-  = t('.progress', current: @user_passed_test.current_question_number, total: @user_passed_test.total_questions)
+  => t('.progress', current: @user_passed_test.current_question_number, total: @user_passed_test.total_questions)
+  | |
+  =< link_to t('.save_gist'), gist_user_passed_test_path, method: :post
 div.card
   div.card-body
     h5.card-title = @user_passed_test.current_question.body
@@ -12,4 +14,4 @@ div.card
           = b.check_box id: "answer_ids_#{b.object.id}", class: 'form-check-input'
           = b.label class: 'form-check-label'
       p
-        = f.submit class: 'btn btn-primary bt-sm mt-3'
+        = f.submit t('.submit'), class: 'btn btn-primary bt-sm mt-3'

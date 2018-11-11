@@ -42,6 +42,13 @@ en:
         question: 'Question: %{body}'
       update:
         notice: Answer has been updated
+    gists:
+      index:
+        header: User gists
+        table:
+          question: Question
+          url: Gist URL
+          user: Email
     questions:
       answers:
         add_link: Add answer
@@ -78,7 +85,7 @@ en:
       show:
         add_question: Add new question
         edit_test: Edit test
-        header: 'Category %{title}'
+        header: Category %{title}
         not_found: Test not found
         test_actions: Actions
         test_answers: Answers
@@ -128,13 +135,20 @@ en:
       update: Update %{model}
   logout: Logout
   navigating:
-    back: Back
     admin: Admin panel
+    admin_gists: Gists
+    admin_tests: Tests
+    back: Back
     delete:
       confirm: Are you sure?
       name: Delete
     edit: Edit
     show: Show
+  services:
+    gists:
+      gist_params:
+        question: 'Question: %{question}'
+        test: 'Test: %{test}'
   tests:
     index:
       header: Test list
@@ -148,6 +162,9 @@ en:
     test:
       start: Start test
   user_passed_tests:
+    gist:
+      failure: Could not create gist
+      success: 'Saved successfully. Link to your %{url}'
     result:
       back_link: Back to tests
       failed: Test failed
@@ -156,9 +173,11 @@ en:
       result_msg_html: 'Your result: <b>%{percent}%</b> correct answers'
     show:
       header: 'You are passing test: %{title}'
-      progress: Question %{current} from %{total}
+      progress: 'Question %{current} from %{total}'
+      save_gist: Save to Gist
+      submit: Next
   users:
     sessions:
       create:
-        signed_in: Welcome, %{name}
+        signed_in: 'Welcome, %{name}'
   welcome_msg: 'Hi, '

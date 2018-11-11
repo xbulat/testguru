@@ -46,6 +46,13 @@ ru:
         question: 'Вопрос: %{body}'
       update:
         notice: Ответ успешно обновлен
+    gists:
+      index:
+        header: Gist пользователей
+        table:
+          question: Вопрос
+          url: Ссылка на Gist
+          user: Эл.адрес
     questions:
       answers:
         add_link: Добавить ответ
@@ -117,13 +124,20 @@ ru:
       update: Обновить %{model}
   logout: Выйти
   navigating:
-    back: Назад
     admin: Панель управления
+    admin_gists: Gists
+    admin_tests: Тесты
+    back: Назад
     delete:
       confirm: Вы уверены?
       name: Удалить
     edit: Редактировать
     show: Показать
+  services:
+    gists:
+      gist_params:
+        question: 'Вопрос: %{question}'
+        test: 'Тест: %{test}'
   tests:
     index:
       header: Список тестов
@@ -137,6 +151,9 @@ ru:
     test:
       start: Пройти тест
   user_passed_tests:
+    gist:
+      failure: Не удалось создать Gist
+      success: Успешно сохранено. Ссылка на ваш %{url}
     result:
       back_link: Вернуться к тестам
       failed: Тест не выполнен
@@ -146,6 +163,8 @@ ru:
     show:
       header: 'Идет прохождение теста: %{title}'
       progress: Вопрос %{current} из %{total}
+      save_gist: Сохранить в Gist
+      submit: Далее
   users:
     sessions:
       create:
