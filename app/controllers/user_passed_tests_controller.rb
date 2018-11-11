@@ -20,11 +20,11 @@ class UserPassedTestsController < ApplicationController
 
     flash_options = if result.success?
                       current_user.gists.create!(question: @user_passed_test.current_question,
-                                                 url: result.gist.html_url)
+                                                 url: result.html_url)
 
                       { notice: t('.success',
                         url: view_context.link_to('gist.github.com',
-                        result.gist.html_url,
+                        result.html_url,
                         target: :blank)) }
                     else
                       { alert: t('.failure') }
