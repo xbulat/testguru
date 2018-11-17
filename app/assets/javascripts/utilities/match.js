@@ -1,6 +1,6 @@
 document.addEventListener('turbolinks:load', function() {
-  var password = document.querySelector('.password')
-  var confirmation = document.querySelector('.confirmation')
+  var password = document.querySelector('.password');
+  var confirmation = document.querySelector('.confirmation');
 
   if (password && confirmation) {
     password.addEventListener('keyup', checkPasswords)
@@ -8,39 +8,25 @@ document.addEventListener('turbolinks:load', function() {
   }
 })
 
-function showErrors(elements) {
+function updateClass(elements, removeClass, addClass) {
   for (var i = 0; i < elements.length; i++) {
-    elements[i].classList.remove('has-success')
-    elements[i].classList.add('has-error')
-  }
-}
-
-function showSuccess(elements) {
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].classList.remove('has-error')
-    elements[i].classList.add('has-success')
-  }
-}
-
-function clearInputs(elements) {
-  for (var i = 0; i < elements.length; i++) {
-    elements[i].classList.remove('has-error')
-    elements[i].classList.remove('has-success')
+    if (removeClass) { elements[i].classList.remove(...removeClass) }
+    if (addClass) { elements[i].classList.add(...addClass) }
   }
 }
 
 function checkPasswords() {
-  inputs = document.querySelectorAll('.has-feedback')
+  inputs = document.querySelectorAll('.has-feedback');
 
   if (document.getElementById('user_password').value ==
     document.getElementById('user_password_confirmation').value) {
-    showSuccess(inputs)
+    updateClass(inputs, ["has-error"], ["has-success"])
   } else {
-    showErrors(inputs)
+    updateClass(inputs, ["has-success"], ["has-error"])
   }
 
   if (document.getElementById('user_password').value == "" &&
     document.getElementById('user_password_confirmation').value == "") {
-      clearInputs(inputs)
+    updateClass(inputs, ["has-error", "has-success"], false)
   }
 }
