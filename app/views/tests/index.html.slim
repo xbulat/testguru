@@ -2,7 +2,10 @@ h2.display-4 = t('.header')
 table class=["table table-striped"]
   thead
     tr.table-primary
-      th = t('.table.title')
+      th.sort-by-title.pointer
+        = t('.table.title')
+        = octicon 'arrow-up', class: 'text-success hide'
+        = octicon 'arrow-down', class: 'text-success hide'
       th = t('.table.level')
       th = t('.table.question')
       th = t('.table.actions')
