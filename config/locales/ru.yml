@@ -133,6 +133,8 @@ ru:
       name: Удалить
     edit: Редактировать
     show: Показать
+    cancel: Отменить
+    ok: OK
   services:
     gists:
       gist_params:

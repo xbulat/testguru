@@ -144,6 +144,8 @@ en:
       name: Delete
     edit: Edit
     show: Show
+    cancel: Cancel
+    ok: OK
   services:
     gists:
       gist_params:
