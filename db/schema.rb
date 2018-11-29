@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_06_225255) do
+ActiveRecord::Schema.define(version: 2018_11_29_134003) do
 
   create_table "answers", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "body", null: false
@@ -25,6 +25,13 @@ ActiveRecord::Schema.define(version: 2018_11_06_225255) do
     t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "feedbacks", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "title"
+    t.text "body"
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_feedbacks_on_user_id"
   end
 
   create_table "gists", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -86,7 +93,7 @@ ActiveRecord::Schema.define(version: 2018_11_06_225255) do
     t.index ["type"], name: "index_users_on_type"
   end
 
-  add_foreign_key "answers", "questions"
+  add_foreign_key "feedbacks", "users"
   add_foreign_key "gists", "questions"
   add_foreign_key "gists", "users"
   add_foreign_key "questions", "tests"

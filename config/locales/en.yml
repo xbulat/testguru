@@ -127,6 +127,9 @@ en:
         category_id: Category
         level: Level
         title: Title
+      feedback:
+        title: Title
+        body: Body
     select:
       prompt: 'Please select: '
     submit:
@@ -182,4 +185,9 @@ en:
     sessions:
       create:
         signed_in: 'Welcome, %{name}'
+  feedbacks:
+    new:
+      header: Please leave your feedback
+    create:
+      feedback_notice: Feedback has been sent
   welcome_msg: 'Hi, '

@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :feedbacks, only: %i[create new]
+
   namespace :admin do
     resources :tests do
       resources :questions, shallow: true, except: :index do

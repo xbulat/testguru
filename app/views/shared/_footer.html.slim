@@ -4,4 +4,6 @@ footer class=["footer", "fixed-bottom", "bg-light"]
     span.text-muted
       = current_year
       =< github_url('xbulat', 'testguru')
-      =< link_to 'Учебный проект в онлайн-школе Thinknetica©', 'http://thinknetika.com'
+      =<> link_to 'Учебный проект в онлайн-школе Thinknetica©', 'http://thinknetika.com'
+      | |
+      =< link_to t('navigating.feedback'), new_feedback_path

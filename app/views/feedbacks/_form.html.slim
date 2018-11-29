@@ -1,0 +1,13 @@
+= render 'shared/errors', resource: @feedback
+= form_with model:[@feedback], local: true do |f|
+  div.form-group
+    p
+      = f.label :title
+      = f.text_field :title, class: 'form-control'
+    p
+      = f.label :body
+      = f.text_area :body,  row: 10, cols: 60, class: 'form-control'
+    div.text-center
+      = f.submit class: 'btn btn-primary'
+p
+  = link_to t('navigating.back'), tests_path

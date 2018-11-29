@@ -10,7 +10,6 @@ default: &default
   host: 127.0.0.1
   user: root
   password: password
-  timeout: 5000
 
 development:
   <<: *default
@@ -24,5 +23,4 @@ test:
   database: tg_test
 
 production:
-  <<: *default
-  database: tg_production
+  url: <%= ENV['DATABASE_URL'] || Rails.application.credentials.database_url %>
