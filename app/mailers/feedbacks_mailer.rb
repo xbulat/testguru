@@ -3,6 +3,6 @@ class FeedbacksMailer < ApplicationMailer
     @user = feedback.user
     @feedback = feedback
 
-    mail to: Rails.application.credentials.mail_to_user || 'root'
+    mail(to: Rails.application.credentials.mail_to_user || 'root', subject: 'Feedback from TestGuru')
    end
 end

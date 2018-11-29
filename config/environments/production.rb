@@ -23,7 +23,7 @@ Rails.application.configure do
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
+  config.assets.js_compressor = Uglifier.new(harmony: true)
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
@@ -62,15 +62,15 @@ Rails.application.configure do
   # Use a real queuing backend for Active Job (and separate queues per environment)
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "test-guru_#{Rails.env}"
-  config.action_mailer.default_url_options = { host: 'floating-anchorage-59251.herokuapp.com' }
+  config.action_mailer.default_url_options = { host: 'xbulat-testguru.herokuapp.com' }
   config.action_mailer.perform_caching = false
 
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
     address:              'smtp.gmail.com',
     port:                 587,
-    domain:               'floating-anchorage-59251.herokuapp.com',
-    user_name:            Rails.application.credentials.smtp_user,
+    domain:               'xbulat-testguru.herokuapp.com',
+    user_name:            Rails.application.credentials.smtp_username,
     password:             Rails.application.credentials.smtp_password,
     authentication:       'plain',
     enable_starttls_auto: true }
