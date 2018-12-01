@@ -25,7 +25,7 @@ class UserPassedTest < ApplicationRecord
   end
 
   def results
-    ((correct_questions.to_f / test.questions.count) * 100).to_i
+    (correct_questions.to_f / total_questions) * 100
   end
 
   def success?
