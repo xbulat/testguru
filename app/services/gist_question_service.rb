@@ -12,7 +12,7 @@ class GistQuestionService
 
   private
   def github_client
-    Octokit::Client.new(access_token: ENV["GITHUB_TOKEN"])
+    Octokit::Client.new(access_token: ENV["GITHUB_TOKEN"] || Rails.application.credentials.github_token )
   end
 
   def gist_params

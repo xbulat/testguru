@@ -2,6 +2,6 @@ h1 = t('.header', title: @user_passed_test.test.title)
 
 div class=["alert", result_css_style(@user_passed_test)]
   h4.alert-heading = result_message(@user_passed_test)
-  p = t('.result_msg_html', percent: @user_passed_test.results)
+  p = t('.result_msg_html', percent: @user_passed_test.results.to_i)
   hr
   p = link_to t('.back_link'), tests_path, class: 'btn btn-dark bt-sm mt-3'

@@ -116,6 +116,9 @@ ru:
         category_id: Категория
         level: Уровень
         title: Название
+      feedback:
+        title: Заголовок
+        body: Отзыв
     select:
       prompt: 'Выберите: '
     submit:
@@ -171,4 +174,9 @@ ru:
     sessions:
       create:
         signed_in: Добро пожаловать, %{name}
+  feedbacks:
+    new:
+      header: Пожалуйста отставьте ваш отзыв
+    create:
+      feedback_notice: Ваш отзыв был отправлен
   welcome_msg: 'Привет, '
