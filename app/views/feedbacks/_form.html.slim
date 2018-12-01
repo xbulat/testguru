@@ -1,5 +1,5 @@
 = render 'shared/errors', resource: @feedback
-= form_with model:[@feedback], local: true do |f|
+= form_with model: @feedback, local: true do |f|
   div.form-group
     p
       = f.label :title
