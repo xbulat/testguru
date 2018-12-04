@@ -3,7 +3,11 @@ class UserPassedTestsController < ApplicationController
 
   def show; end
 
-  def result; end
+  def result
+    awards = BadgeRuleService.new(@user_passed_test).check_defined_rules
+
+    flash.now[:notice] = t('.new_awards') if awards.any?
+  end
 
   def update
     @user_passed_test.accept!(params[:answer_ids])
