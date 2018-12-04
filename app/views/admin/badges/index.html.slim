@@ -1,0 +1,12 @@
+h2.display-4 = t('.header')
+table class=["table table-striped"]
+  thead.thead-light
+  tr.table-primary
+    th = t('.table.image')
+    th = t('.table.title')
+    th = t('.table.description')
+    th.text-center = t('.table.actions')
+  tbody
+  = render @badges
+p
+  = link_to t('.new_badge'), new_admin_badge_path, class: "btn btn-primary"

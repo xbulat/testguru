@@ -1,0 +1,21 @@
+h2 Badge
+
+= render 'shared/errors', resource: @badge
+= form_with model: [:admin, @badge], local: true do |f|
+  div.field
+    = f.label :title
+    = f.text_field :title
+  div.field
+    = f.label :description
+    = f.text_field :description
+  div.field
+    = f.label :image
+    = f.collection_select :image, Badge.images, :last.to_s, :first.to_s, prompt: true
+  div.field
+    = f.label :badge_rule
+    = f.collection_select :badge_rule_id, BadgeRule.all, :id, :description, prompt: true
+  div.actions
+    = f.submit
+
+p
+  = link_to t('navigating.back'), admin_badges_path

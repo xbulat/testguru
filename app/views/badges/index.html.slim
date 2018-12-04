@@ -1,0 +1,11 @@
+h2.display-4 = t('.header')
+table class=["table table-striped"]
+  thead.thead-light
+  tr.table-primary
+    th = t('.table.image')
+    th = t('.table.title')
+    th = t('.table.description')
+  tbody
+  = render @badges
+
+p = link_to t('navigating.back'), tests_path
