@@ -7,8 +7,8 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # users
-users = User.create!([{ first_name: 'John', last_name: 'Doe', email: 'john@example.com', password: 'password', type: "Admin" },
-              { first_name: 'Jane', last_name: 'Doe', email: 'jane@example.com', password: 'password' }])
+users = User.create!([{ first_name: 'John', last_name: 'Doe', email: 'john@example.com', password: 'password', type: "Admin", confirmed_at: Time.now  },
+              { first_name: 'Jane', last_name: 'Doe', email: 'jane@example.com', password: 'password', confirmed_at: Time.now  }])
 
 # categories
 categories = %w[Language Sience Art Religion].map { |c| Category.create!(title: c) }
