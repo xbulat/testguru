@@ -44,3 +44,11 @@ end
 questions.slice(0..10).each do |q|
   Gist.create!(user: users.sample, url: "https://gist.example.com/#{SecureRandom.hex}", question: q)
 end
+
+# badge_rules
+rule1 = BadgeRule.create!(method: 'rule_manual', argument: nil , description: "Manual")
+rule2 = BadgeRule.create!(method: 'rule_first_try_success', argument: nil , description: "First time success")
+rule3 = BadgeRule.create!(method: 'rule_all_in_category', argument: categories.first.id , description: "All tests in category #{categories.first.title}")
+rule4 = BadgeRule.create!(method: 'rule_all_in_level', argument: tests.first.id , description: "All tests with level #{tests.first.level}")
+
+# badges
