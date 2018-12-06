@@ -46,6 +46,24 @@ ru:
         question: 'Вопрос: %{body}'
       update:
         notice: Ответ успешно обновлен
+    badge_rules:
+      index:
+        header: Правила выдачи наград
+        new_rule: Создать новое правило
+        table:
+          actions: Действия
+          argument: Аргумент
+          description: Описание
+          rule: Правило
+    badges:
+      index:
+        header: Награды
+        new_badge: Создать награду
+        table:
+          actions: Действия
+          description: Описание
+          image: Изображение
+          title: Заголовок
     gists:
       index:
         header: Gist пользователей
@@ -99,6 +117,13 @@ ru:
         test_title: 'Тест: %{title}'
       update:
         notice: Тест успешно обновлен
+  badges:
+    index:
+      header: Ваши награды
+      table:
+        description: Описание
+        image: Изображение
+        title: Заголовок
   errors:
     admin_required: Требуются права администратора
     form:
@@ -110,15 +135,20 @@ ru:
       not_found: Вопрос не найден
     tests:
       not_found: Тест не найден
+  feedbacks:
+    create:
+      feedback_notice: Ваш отзыв был отправлен
+    new:
+      header: Пожалуйста отставьте ваш отзыв
   helpers:
     label:
+      feedback:
+        body: Отзыв
+        title: Заголовок
       test:
         category_id: Категория
         level: Уровень
         title: Название
-      feedback:
-        title: Заголовок
-        body: Отзыв
     select:
       prompt: 'Выберите: '
     submit:
@@ -128,16 +158,20 @@ ru:
   logout: Выйти
   navigating:
     admin: Панель управления
+    admin_badge_rules: Правила наград
+    admin_badges: Награды
     admin_gists: Gists
     admin_tests: Тесты
     back: Назад
+    badges: Награды
+    cancel: Отменить
     delete:
       confirm: Вы уверены?
       name: Удалить
     edit: Редактировать
-    show: Показать
-    cancel: Отменить
+    feedback: Оставить отзыв
     ok: OK
+    show: Показать
   services:
     gists:
       gist_params:
@@ -170,13 +204,10 @@ ru:
       progress: Вопрос %{current} из %{total}
       save_gist: Сохранить в Gist
       submit: Далее
+    update:
+      new_awards: Вы получили навые награды!
   users:
     sessions:
       create:
         signed_in: Добро пожаловать, %{name}
-  feedbacks:
-    new:
-      header: Пожалуйста отставьте ваш отзыв
-    create:
-      feedback_notice: Ваш отзыв был отправлен
   welcome_msg: 'Привет, '

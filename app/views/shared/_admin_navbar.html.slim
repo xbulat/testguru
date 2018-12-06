@@ -7,6 +7,10 @@ nav class=["navbar navbar-dark bg-dark navbar-expand-lg"]
         = link_to t('navigating.admin_gists'), admin_gists_path, class: "nav-link"
       li.nav-item
         = link_to t('navigating.admin_tests'), admin_tests_path, class: "nav-link"
+      li.nav-item
+        = link_to t('navigating.admin_badges'), admin_badges_path, class: "nav-link"
+      li.nav-item
+        = link_to t('navigating.admin_badge_rules'), admin_badge_rules_path, class: "nav-link"
   span.navbar-text
     = t('welcome_msg')
     b

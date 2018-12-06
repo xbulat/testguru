@@ -1,0 +1,8 @@
+tr
+  td
+    img src= image_path(badge.image)
+  td = badge.title
+  td = badge.description
+  td.text-center
+    =< link_to t('navigating.edit'), edit_admin_badge_path(badge), class: "btn btn-outline-secondary btn-sm"
+    =< link_to t('navigating.delete.name'), admin_badge_path(badge), method: :delete, data: {confirm: t('navigating.delete.confirm')}, class: "btn btn-outline-danger btn-sm"

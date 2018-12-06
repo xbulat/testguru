@@ -1,0 +1,18 @@
+h2 Badge rules
+
+= render 'shared/errors', resource: @badge_rule
+= form_with model: [:admin, @badge_rule], local: true do |f|
+  div.field
+    = f.label :description
+    = f.text_field :description
+  div.field
+    = f.label :rule
+    = f.collection_select :rule, BadgeRule.list, :to_s, :to_s
+  div.field
+    = f.label :argument
+    = f.text_field :argument
+  div.actions
+    = f.submit
+
+p
+  = link_to t('navigating.back'), admin_badge_rules_path

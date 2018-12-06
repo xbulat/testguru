@@ -26,6 +26,10 @@ en:
               blank: field cannot be blank
             last_name:
               blank: field cannot be blank
+            password:
+              blank: field cannot be blank
+            password_confirmation:
+              confirmation: password missmatch
   admin:
     answers:
       create:
@@ -42,6 +46,24 @@ en:
         question: 'Question: %{body}'
       update:
         notice: Answer has been updated
+    badge_rules:
+      index:
+        header: Badge rules
+        new_rule: New BadgeRule
+        table:
+          actions: Actions
+          argument: Argument
+          description: Description
+          rule: Rule
+    badges:
+      index:
+        header: Badges
+        new_badge: Create Badge
+        table:
+          actions: Actioons
+          description: Description
+          image: Image
+          title: Title
     gists:
       index:
         header: User gists
@@ -95,6 +117,13 @@ en:
         test_title: 'Test: %{title}'
       update:
         notice: Test has been updated
+  badges:
+    index:
+      header: Your badges
+      table:
+        description: Description
+        image: Image
+        title: Title
   devise:
     registrations:
       edit:
@@ -106,6 +135,7 @@ en:
     sessions:
       new:
         header: Header
+        remember_me: Remember me
         sign_in: Sign in
     shared:
       links:
@@ -117,19 +147,26 @@ en:
       many: Found %{count} errors
       one: Found %{count} error
     invalid_record: could not write to database
+    messages:
+      not_saved: Not saved
     questions:
       not_found: Question not found
     tests:
       not_found: Test not found
+  feedbacks:
+    create:
+      feedback_notice: Feedback has been sent
+    new:
+      header: Please leave your feedback
   helpers:
     label:
+      feedback:
+        body: Body
+        title: Title
       test:
         category_id: Category
         level: Level
         title: Title
-      feedback:
-        title: Title
-        body: Body
     select:
       prompt: 'Please select: '
     submit:
@@ -139,16 +176,20 @@ en:
   logout: Logout
   navigating:
     admin: Admin panel
+    admin_badge_rules: BadgeRules
+    admin_badges: Badges
     admin_gists: Gists
     admin_tests: Tests
     back: Back
+    badges: Badges
+    cancel: Cancel
     delete:
       confirm: Are you sure?
       name: Delete
     edit: Edit
-    show: Show
-    cancel: Cancel
+    feedback: Leave Feedback
     ok: OK
+    show: Show
   services:
     gists:
       gist_params:
@@ -169,7 +210,7 @@ en:
   user_passed_tests:
     gist:
       failure: Could not create gist
-      success: 'Saved successfully. Link to your %{url}'
+      success: Saved successfully. Link to your %{url}
     result:
       back_link: Back to tests
       failed: Test failed
@@ -178,16 +219,13 @@ en:
       result_msg_html: 'Your result: <b>%{percent}%</b> correct answers'
     show:
       header: 'You are passing test: %{title}'
-      progress: 'Question %{current} from %{total}'
+      progress: Question %{current} from %{total}
       save_gist: Save to Gist
       submit: Next
+    update:
+      new_awards: You got new awards!
   users:
     sessions:
       create:
-        signed_in: 'Welcome, %{name}'
-  feedbacks:
-    new:
-      header: Please leave your feedback
-    create:
-      feedback_notice: Feedback has been sent
+        signed_in: Welcome, %{name}
   welcome_msg: 'Hi, '

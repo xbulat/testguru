@@ -1,10 +1,15 @@
 nav class=["navbar navbar-light bg-light"]
   span.navbar-brand
     =< link_to 'TestGuru', root_path
-  - if current_user.present? && current_user.admin?
-    ul class=["navbar-nav mr-auto mt-1 mt-lg-0"]
-      li.nav-item
-        = link_to t('navigating.admin'), admin_tests_path, class: "nav-link"
+  - if user_signed_in?
+    div class="navbar-expand-lg" id="navbarNav"
+      ul class=["navbar-nav mr-auto mt-2 mt-lg-0"]
+        li.nav-item
+          = link_to t('navigating.badges'), badges_path, class: "nav-link"
+        - if current_user.admin?
+          li.nav-item
+            = link_to t('navigating.admin'), admin_tests_path, class: "nav-link"
+
   span.navbar-text
     - if user_signed_in?
       = render 'shared/navbar_logged'
