@@ -1,17 +1,13 @@
 class BadgeRuleService
-  def self.rules
-    private_instance_methods.grep(/rule_/)
-  end
-
   def initialize(user_passed_test)
     @user_attempt = user_passed_test
     @user = user_passed_test.user
-    @badges = Badge.all
+    @badges = Badge.includes(:badge_rule)
   end
 
   def check_awards
     return [] unless @user_attempt.success?
-    @badges.select { |b| send(b.badge_rule.rule, b.badge_rule.argument) }
+    @badges.select { |b| send("rule_#{b.badge_rule.rule}", b.badge_rule.argument) }
   end
 
   private

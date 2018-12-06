@@ -1,9 +1,9 @@
 class BadgeRule < ApplicationRecord
   RULES = %w[
-    rule_manual
-    rule_first_try_success
-    rule_all_in_level
-    rule_all_in_category
+    manual
+    first_try_success
+    all_in_level
+    all_in_category
   ].freeze
 
   def self.list
@@ -12,11 +12,5 @@ class BadgeRule < ApplicationRecord
 
   has_one :badge
 
-  validate :validate_rules
-
-  private
-
-  def validate_rules
-    errors.add(:base, 'Rule must be exist') unless RULES.member?(self.rule)
-  end
+  validates :rule, inclusion: RULES
 end
