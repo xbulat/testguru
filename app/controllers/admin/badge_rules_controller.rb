@@ -40,6 +40,6 @@ class Admin::BadgeRulesController < Admin::BaseController
     end
 
     def resource_params
-      params.require(:badge_rule).permit(:method, :argument, :description)
+      params.require(:badge_rule).permit(:rule, :argument, :description)
     end
 end

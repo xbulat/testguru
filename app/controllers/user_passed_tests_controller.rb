@@ -10,9 +10,13 @@ class UserPassedTestsController < ApplicationController
 
     if @user_passed_test.completed?
       awards = BadgeRuleService.new(@user_passed_test).check_awards
-      @user_passed_test.user.badges << awards if awards.any?
 
-      redirect_to result_user_passed_test_path(@user_passed_test), notice: t('.new_awards')
+      if awards.any?
+        @user_passed_test.user.badges << awards
+        flash[:notice] = t('.new_awards')
+      end
+
+      redirect_to result_user_passed_test_path(@user_passed_test)
     else
       render :show
     end

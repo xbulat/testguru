@@ -7,7 +7,7 @@ h2 Badge rules
     = f.text_field :description
   div.field
     = f.label :rule
-    = f.collection_select :rule, BadgeRuleService.rules, :to_s, :to_s
+    = f.collection_select :rule, BadgeRule.list, :to_s, :to_s
   div.field
     = f.label :argument
     = f.text_field :argument

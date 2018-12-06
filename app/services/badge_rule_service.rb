@@ -1,18 +1,17 @@
 class BadgeRuleService
   def self.rules
-    self.private_instance_methods.grep(/rule_/)
+    private_instance_methods.grep(/rule_/)
   end
 
   def initialize(user_passed_test)
     @user_attempt = user_passed_test
     @user = user_passed_test.user
-    @rules = BadgeRule.all
+    @badges = Badge.all
   end
 
   def check_awards
-    @rules.map do |r|
-      r.badge if @user_attempt.success? && send(r.rule, r.argument)
-    end.compact
+    return [] unless @user_attempt.success?
+    @badges.select { |b| send(b.badge_rule.rule, b.badge_rule.argument) }
   end
 
   private
@@ -26,10 +25,10 @@ class BadgeRuleService
   end
 
   def rule_all_in_level(level)
-    @user.passed_by_level(level).select(:id).order(id: :asc).uniq.map(&:id) == Test.by_level(level).select(:id).order(id: :asc).ids
+    @user.passed_by_level(level).select(:id).order(id: :asc).uniq.pluck(:id) == Test.by_level(level).order(id: :asc).ids
   end
 
   def rule_all_in_category(category)
-    @user.passed_by_category(category).select(:id).order(id: :asc).uniq.map(&:id) == Test.by_category(category).select(:id).order(id: :asc).ids
+    @user.passed_by_category(category).select(:id).order(id: :asc).uniq.pluck(:id) == Test.by_category(category).order(id: :asc).ids
   end
 end

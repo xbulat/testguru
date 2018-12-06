@@ -49,7 +49,7 @@ end
 rule1 = BadgeRule.create!(rule: 'rule_manual', argument: nil , description: "Manual")
 rule2 = BadgeRule.create!(rule: 'rule_first_try_success', argument: nil , description: "First time success")
 rule3 = BadgeRule.create!(rule: 'rule_all_in_category', argument: categories.first.id , description: "All tests in category #{categories.first.title}")
-rule4 = BadgeRule.create!(rule: 'rule_all_in_level', argument: tests.first.id , description: "All tests with level #{tests.first.level}")
+rule4 = BadgeRule.create!(rule: 'rule_all_in_level', argument: tests.first.level , description: "All tests with level #{tests.first.level}")
 
 # badges
 Badge.create!(title: "Leader", image: 'leader.png', description: 'Manual', badge_rule: rule1)
