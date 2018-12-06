@@ -54,7 +54,7 @@ en:
           actions: Actions
           argument: Argument
           description: Description
-          method: Method
+          rule: Rule
     badges:
       index:
         header: Badges
@@ -215,7 +215,6 @@ en:
       back_link: Back to tests
       failed: Test failed
       header: Test %{title} has been completed!
-      new_awards: You got new awards!
       passed: Test passed successfully
       result_msg_html: 'Your result: <b>%{percent}%</b> correct answers'
     show:
@@ -223,6 +222,8 @@ en:
       progress: Question %{current} from %{total}
       save_gist: Save to Gist
       submit: Next
+    update:
+      new_awards: You got new awards!
   users:
     sessions:
       create:

@@ -17,7 +17,7 @@ categories = %w[Language Sience Art Religion].map { |c| Category.create!(title: 
 tests = categories.map do |c|
   %w[Basics History].map do |t|
     Test.create!(title: "#{t} of #{c.title}",
-                 level: rand(6),
+                 level: rand(1),
                  category_id: c.id,
                  user_id: users.sample.id)
   end
@@ -25,7 +25,7 @@ end.flatten
 
 # questions
 questions = tests.flat_map do |test|
-  Array.new(10) do |i|
+  Array.new(4) do |i|
     Question.create!(test_id: test.id, body: "Question ##{i}")
   end
 end
@@ -46,9 +46,13 @@ questions.slice(0..10).each do |q|
 end
 
 # badge_rules
-rule1 = BadgeRule.create!(method: 'rule_manual', argument: nil , description: "Manual")
-rule2 = BadgeRule.create!(method: 'rule_first_try_success', argument: nil , description: "First time success")
-rule3 = BadgeRule.create!(method: 'rule_all_in_category', argument: categories.first.id , description: "All tests in category #{categories.first.title}")
-rule4 = BadgeRule.create!(method: 'rule_all_in_level', argument: tests.first.id , description: "All tests with level #{tests.first.level}")
+rule1 = BadgeRule.create!(rule: 'rule_manual', argument: nil , description: "Manual")
+rule2 = BadgeRule.create!(rule: 'rule_first_try_success', argument: nil , description: "First time success")
+rule3 = BadgeRule.create!(rule: 'rule_all_in_category', argument: categories.first.id , description: "All tests in category #{categories.first.title}")
+rule4 = BadgeRule.create!(rule: 'rule_all_in_level', argument: tests.first.id , description: "All tests with level #{tests.first.level}")
 
 # badges
+Badge.create!(title: "Leader", image: 'leader.png', description: 'Manual', badge_rule: rule1)
+Badge.create!(title: "First time success!", image: '1st_success.png', description: 'Success after 1st try', badge_rule: rule2)
+Badge.create!(title: "Category is completed", image: 'winner_category.png', description: 'All tests in category were completed', badge_rule: rule3)
+Badge.create!(title: "Level is completed", image: 'winner_level.png', description: 'All tests by level were completed', badge_rule: rule4)

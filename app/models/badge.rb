@@ -5,12 +5,18 @@ class Badge < ApplicationRecord
 
   validates :title, presence: true, uniqueness: true
 
-  def self.images
-    [
-      ['First try success', '1st_success.png'],
-      ['Leader', 'leader.png'],
-      ['Complete category', 'winner_category.png'],
-      ['Complete level', 'winner_level.png'],
-    ]
+  before_save :default_image
+
+  IMAGES = [
+    ['First try success', '1st_success.png'],
+    ['Leader', 'leader.png'],
+    ['Complete category', 'winner_category.png'],
+    ['Complete level', 'winner_level.png'],
+  ].freeze
+
+  private
+
+  def default_image
+    self.image = 'default_badge.png' if self.image.empty?
   end
 end

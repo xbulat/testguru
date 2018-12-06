@@ -4,22 +4,15 @@ class BadgeRuleService
   end
 
   def initialize(user_passed_test)
-    @upt = user_passed_test
+    @user_attempt = user_passed_test
+    @user = user_passed_test.user
     @rules = BadgeRule.all
-    @awards = []
   end
 
-  def check_defined_rules
-    @rules.each do |rule|
-      result = method(rule.method).call(rule.argument)
-
-      if result
-        @upt.user.user_badges.create!(badge: rule.badge)
-        @awards << rule.badge.id
-      end
-    end
-
-    @awards
+  def check_awards
+    @rules.map do |r|
+      r.badge if @user_attempt.success? && send(r.rule, r.argument)
+    end.compact
   end
 
   private
@@ -29,14 +22,14 @@ class BadgeRuleService
   end
 
   def rule_first_try_success(_)
-    @upt.success? && @upt.user.test_ids.count(@upt.test_id) == 1
+    @user.test_ids.count(@user_attempt.test_id) == 1
   end
 
   def rule_all_in_level(level)
-    @upt.success? && @upt.user.passed_by_level(level).ids.uniq.sort == Test.by_level(level).ids.sort
+    @user.passed_by_level(level).select(:id).order(id: :asc).uniq.map(&:id) == Test.by_level(level).select(:id).order(id: :asc).ids
   end
 
   def rule_all_in_category(category)
-    @upt.success? && @upt.user.passed_by_category(category).ids.uniq.sort == Test.by_category(category).ids.sort
+    @user.passed_by_category(category).select(:id).order(id: :asc).uniq.map(&:id) == Test.by_category(category).select(:id).order(id: :asc).ids
   end
 end

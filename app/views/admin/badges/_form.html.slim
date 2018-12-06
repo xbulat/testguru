@@ -10,7 +10,7 @@ h2 Badge
     = f.text_field :description
   div.field
     = f.label :image
-    = f.collection_select :image, Badge.images, :last.to_s, :first.to_s, prompt: true
+    = f.collection_select :image, Badge::IMAGES, :last.to_s, :first.to_s, prompt: true
   div.field
     = f.label :badge_rule
     = f.collection_select :badge_rule_id, BadgeRule.all, :id, :description, prompt: true

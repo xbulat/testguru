@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 2018_12_03_190937) do
   end
 
   create_table "badge_rules", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "method"
+    t.string "rule"
     t.string "argument"
     t.text "description"
     t.datetime "created_at", null: false

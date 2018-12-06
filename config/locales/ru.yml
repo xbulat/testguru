@@ -54,7 +54,7 @@ ru:
           actions: Действия
           argument: Аргумент
           description: Описание
-          method: Метод
+          rule: Правило
     badges:
       index:
         header: Награды
@@ -197,7 +197,6 @@ ru:
       back_link: Вернуться к тестам
       failed: Тест не выполнен
       header: Тест %{title} был завершен!
-      new_awards: Вы получили навые награды!
       passed: Тест успешно пройден
       result_msg_html: 'Ваш результат: <b>%{percent}%</b> правильных ответов'
     show:
@@ -205,6 +204,8 @@ ru:
       progress: Вопрос %{current} из %{total}
       save_gist: Сохранить в Gist
       submit: Далее
+    update:
+      new_awards: Вы получили навые награды!
   users:
     sessions:
       create:
