@@ -6,4 +6,8 @@ module UserPassedTestsHelper
   def result_css_style(user_passed_test)
     user_passed_test.success? ? 'alert-success' : 'alert-danger'
   end
+
+  def minutes_left(seconds)
+    (Time.mktime(0)+seconds).strftime("%M:%S")
+  end
 end

@@ -3,7 +3,11 @@ h2 = t('.header', title: @user_passed_test.test.title)
 p
   => t('.progress', current: @user_passed_test.current_question_number, total: @user_passed_test.total_questions)
   | |
-  =< link_to t('.save_gist'), gist_user_passed_test_path, method: :post
+  =<> link_to t('.save_gist'), gist_user_passed_test_path, method: :post
+  - if @user_passed_test.test.timer.positive?
+    | |
+    =< t('.timer')
+    =< content_tag(:span, minutes_left(@user_passed_test.time_left), class: "timer", data: { time: @user_passed_test.time_left, id: @user_passed_test.id })
 
 = content_tag(:div, class: "progress_bar", data: { progress: @user_passed_test.current_question_number })
   table.table

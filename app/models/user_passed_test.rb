@@ -32,7 +32,22 @@ class UserPassedTest < ApplicationRecord
     results >= SUCCESS_RATE
   end
 
+  def timeout?
+    Time.current > limit_time
+  end
+
+  def ontime?
+    !timeout?
+  end
+
+  def time_left
+    (limit_time - Time.current).to_i
+  end
+
   private
+  def limit_time
+    created_at + test.timer.seconds
+  end
 
   def before_validation_set_next_question
     self.current_question = next_question

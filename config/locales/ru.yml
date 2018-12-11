@@ -204,8 +204,10 @@ ru:
       progress: Вопрос %{current} из %{total}
       save_gist: Сохранить в Gist
       submit: Далее
+      timer: 'Оставшееся время:'
     update:
       new_awards: Вы получили навые награды!
+      timeout: Время вышло!
   users:
     sessions:
       create:
