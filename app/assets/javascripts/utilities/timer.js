@@ -2,15 +2,21 @@ document.addEventListener('turbolinks:load', function() {
   var timer = document.querySelector('.timer')
 
   function secondsToMinutes(time){
-    return (time / 60 < 10 ? "0" : "") + Math.floor(time / 60) + ":" + (time % 60 < 10 ? "0" : "") + time % 60;
+    return rjust(Math.floor(time / 60)) + ":" + rjust((time % 60));
   }
 
-  function countDown(testTime, testId, object) {
+  function rjust(string) {
+    append = string < 10 ? "0" : ""
+
+    return append + string
+  }
+
+  function countDown(testTime, object) {
     setInterval(function() {
       if (testTime > 0) {
         testTime -= 1;
       } else {
-        window.location.replace('/user_passed_tests/' + testId + '/result');
+        document.getElementById('answer').submit();
       }
 
       object.innerHTML = secondsToMinutes(testTime)
@@ -19,8 +25,7 @@ document.addEventListener('turbolinks:load', function() {
 
   if (timer) {
     var testTime = timer.dataset.time;
-    var userTestId = timer.dataset.id;
 
-    countDown(testTime, userTestId, timer)
+    countDown(testTime, timer)
   }
 })

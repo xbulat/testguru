@@ -33,11 +33,17 @@ class UserPassedTest < ApplicationRecord
   end
 
   def timeout?
+    return false unless timer?
+
     Time.current > limit_time
   end
 
   def ontime?
     !timeout?
+  end
+
+  def timer?
+    test.timer.nonzero?
   end
 
   def time_left
