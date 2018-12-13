@@ -2,13 +2,13 @@ document.addEventListener('turbolinks:load', function() {
   var timer = document.querySelector('.timer')
 
   function secondsToMinutes(time){
-    return rjust(Math.floor(time / 60)) + ":" + rjust((time % 60));
+    return rzero(Math.floor(time / 60)) + ":" + rzero((time % 60));
   }
 
-  function rjust(string) {
-    append = string < 10 ? "0" : ""
+  function rzero(number) {
+    append = number < 10 ? "0" : ""
 
-    return append + string
+    return append + number
   }
 
   function countDown(testTime, object) {

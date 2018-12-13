@@ -8,7 +8,7 @@ class UserPassedTestsController < ApplicationController
   def update
     @user_passed_test.accept!(params[:answer_ids])
 
-    if @user_passed_test.completed? && @user_passed_test.ontime?
+    if @user_passed_test.completed?
       awards = BadgeRuleService.new(@user_passed_test).check_awards
 
       if awards.any?
@@ -16,9 +16,9 @@ class UserPassedTestsController < ApplicationController
         flash[:notice] = t('.new_awards')
       end
 
+      flash[:alarm] = t('.timeout') if @user_passed_test.timeout?
+
       redirect_to result_user_passed_test_path(@user_passed_test)
-    elsif @user_passed_test.timeout?
-      redirect_to result_user_passed_test_path(@user_passed_test), alert: t('.timeout')
     else
       render :show
     end

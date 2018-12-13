@@ -8,6 +8,8 @@ class UserPassedTest < ApplicationRecord
   SUCCESS_RATE = 85
 
   def completed?
+    return true if timeout?
+
     current_question.nil?
   end
 
